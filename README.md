@@ -15,3 +15,5 @@
    - Route =/profile =>Profile
 - Create BrowserRouter > Routes > Route =/ Body > RouteChildren
 - Create an Outlet in your Body Component
+- Install axios
+- CORS - install cors in backend=> add middleware to with configurations: origin, credentials:true
