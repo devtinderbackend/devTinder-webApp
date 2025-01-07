@@ -6,6 +6,7 @@ import { BASE_URL } from "../utils/constants";
 
 const NavBar = () => {
   const user = useSelector((store) => store.user);
+  console.log("User from Redux store:", user);
   const disPatch = useDispatch();
   const navigate = useNavigate();
   const handleLogout = async () => {
@@ -17,6 +18,7 @@ const NavBar = () => {
       console.error(err);
     }
   };
+
   return (
     <>
       <div className="navbar bg-base-200">
@@ -27,7 +29,7 @@ const NavBar = () => {
         </div>
         {user && (
           <div className="flex-none gap-2">
-            {user.firstName}
+            {user.firstName + " " + user.lastName}
             <div className="dropdown dropdown-end mx-6">
               <div
                 tabIndex={0}
@@ -37,7 +39,7 @@ const NavBar = () => {
                 <div className="w-10 rounded-full">
                   <img
                     alt="Tailwind CSS Navbar component"
-                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                    src={user.photoUrl}
                   />
                 </div>
               </div>

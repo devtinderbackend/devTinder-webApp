@@ -1,7 +1,6 @@
-// eslint-disable-next-line react/prop-types
 const UserCard = ({ user }) => {
-  // eslint-disable-next-line react/prop-types
   const { firstName, lastName, photoUrl, gender, age, about } = user;
+
   return (
     <div className="card bg-base-300 w-96 shadow-xl">
       <figure>
