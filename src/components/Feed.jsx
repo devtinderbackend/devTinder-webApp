@@ -11,10 +11,15 @@ const Feed = () => {
   const getFeed = async () => {
     if (feed) return;
     console.log("base in feed", BASE_URL);
-    const res = await axios.get(BASE_URL + "/feed", {
-      withCredentials: true,
-    });
-    dispatch(addFeed(res.data));
+    try {
+        const res = await axios.get(BASE_URL + "/feed", {
+            withCredentials: true,
+          });
+          dispatch(addFeed(res?.data));
+
+    } catch (err) {
+        console.error("Invalid Feed", err.message);
+    }
   };
 
   useEffect(() => {
@@ -24,7 +29,7 @@ const Feed = () => {
   return (
     feed && (
       <div className="flex justify-center my-10">
-        <UserCard user={feed[4]} />
+        <UserCard user={feed[0]} />
       </div>
     )
   );
